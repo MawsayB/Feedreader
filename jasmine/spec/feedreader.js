@@ -27,10 +27,15 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
+        /* A test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+
+         it('should have a URL defined', function () {
+             expect(allFeeds).toContain(jasmine.allFeeds(url));
+             //access the URL from within allFeeds
+         });
 
 
         /* TODO: Write a test that loops through each feed
