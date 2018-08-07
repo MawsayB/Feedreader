@@ -32,8 +32,8 @@ $(function() {
          * and that the URL is not empty.
          */
 
-         it('should have a URL defined', function () {
-             expect(allFeeds).toContain(jasmine.allFeeds(url));
+         it('have a URL defined', function () {
+             expect(allFeeds.url).not.toBe(null);
              //access the URL from within allFeeds
          });
 
