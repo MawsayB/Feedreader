@@ -105,11 +105,29 @@ $(function() {
         it('should have at least one entry', function() {
             expect($('.feed').length > 0).toBe(true);
         });
+}());
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
+    /* A new test suite named "New Feed Selection" */
 
-        /* TODO: Write a test that ensures when a new feed is loaded
+    $(function() {
+        describe('New Feed Selection', function() {
+
+        /* A test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-}());
+        beforeEach(function(done) {
+            loadFeed(0, () => {
+            feed1 = document.querySelectorAll('.feed .entry-link');
+            loadFeed(1, () => {
+            feed2 = document.querySelectorAll('.feed .entry-link');
+            done();
+            });
+        });
+    });
+
+        it('changes content when a new feed is loaded', function() {
+            expect(feed1).not.toBe(feed2);
+            });
+        });
+    }());
