@@ -97,13 +97,14 @@ $(function() {
          */
 
         beforeEach(function(done) {
-            loadFeed();
-                done();
+            loadFeed(0, done);
             });
         });
 
         it('should have at least one entry', function() {
-            expect($('body').hasClass('.feed .entry')).toBe(true);
+            const feed = $('.feed');
+            const feedEntry = feed.children;
+            expect(feedEntry.length > 0).toBe(true);
         });
 }());
 
@@ -124,11 +125,9 @@ $(function() {
             loadFeed(0, function() {
                 //feed 0 done loading
             feed1 = $('.feed .entry').html();
-            console.log(feed1);
             loadFeed(1, function() {
                 //feed 1 done loading
             feed2 =  $('.feed .entry').html();
-            console.log(feed2);
                 //all variables initialized can begin tests
             done();
             });
