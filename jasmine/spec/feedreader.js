@@ -89,7 +89,7 @@ $(function() {
 
         describe('Initial Entries', function() {
 
-        /* TODO: Write a test that ensures when the loadFeed
+        /* A test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * Remember, loadFeed() is asynchronous so this test will require
@@ -103,7 +103,7 @@ $(function() {
         });
 
         it('should have at least one entry', function() {
-            expect($('.feed').length > 0).toBe(true);
+            expect($('body').hasClass('.feed .entry')).toBe(true);
         });
 }());
 
@@ -116,11 +116,15 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+         let feed1 = '';
+         let feed2 = '';
+
         beforeEach(function(done) {
-            loadFeed(0, () => {
-            feed1 = document.querySelectorAll('.feed .entry-link');
-            loadFeed(1, () => {
-            feed2 = document.querySelectorAll('.feed .entry-link');
+            loadFeed(0, function() {
+            feed1 = $('.feed .entry').html();
+            loadFeed(1, function() {
+            feed2 =  $('.feed .entry').html();
             done();
             });
         });
