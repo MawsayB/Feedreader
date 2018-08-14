@@ -94,8 +94,8 @@ $(function() {
         });
 
         it('should have at least one entry', function() {
-            const feedEntry = $('.feed .entry');
-            //this test breaks
+            const feed = $('.feed .entry');
+            const feedEntry = feed.children;
             expect(feedEntry.length > 0).toBe(true);
         });
 
