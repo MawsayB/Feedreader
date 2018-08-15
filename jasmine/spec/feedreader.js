@@ -66,12 +66,12 @@ $(function() {
          /* A test that ensures the menu changes
           * visibility when the menu icon is clicked.*/
 
-         it('displays when clicked', function() {
+         it('menu toggles when clicked', function() {
+             // first click
             menuIcon.click();
             expect($('body').hasClass('menu-hidden')).toBe(false);
-        });
 
-        it('hides when clicked again', function() {
+            // second click
             menuIcon.click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
@@ -90,14 +90,15 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(0, done);
-            });
-        });
 
         it('should have at least one entry', function() {
             const feed = $('.feed .entry');
-            const feedEntry = feed.children;
             expect(feedEntry.length > 0).toBe(true);
         });
+    });
+});
+
+
 
     /* A new test suite named "New Feed Selection" */
 
