@@ -90,12 +90,12 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(0, done);
-
+        });
+        
         it('should have at least one entry', function() {
-            const feed = $('.feed .entry');
+            const feedEntry = $('.feed .entry');
             expect(feedEntry.length > 0).toBe(true);
         });
-    });
 });
 
 
